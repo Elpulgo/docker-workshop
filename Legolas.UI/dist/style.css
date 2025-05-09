@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: radial-gradient(circle at top, #dbe9d8 0%, #a8cfa0 100%);
+  color: #2f3e2e;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2d5d34;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 100px;
+}
+
+.blob-card {
+  position: relative;
+  width: 260px;
+  height: 320px;
+  background: linear-gradient(145deg, #ecfce2, #c9eabf);
+  box-shadow: 0 6px 16px rgba(0, 50, 0, 0.25);
+  overflow: hidden;
+  padding: 4rem;
+  clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 70%, 60% 100%, 30% 90%, 0% 60%);
+  transition: transform 0.3s ease;
+  justify-content: center;
+  display: flex;
+}
+
+.blob-card:hover {
+  transform: scale(1.05);
+}
+
+.blob-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  width: 60%;
+}
+
+.blob-content h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  color: #305e33;
+}
+
+.blob-content p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #4c6d4f;
+}
+
+
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+}
+
+
+#fetchBtn {
+  background-color: #709770;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#fetchBtn:hover {
+  background-color: #5b7e5b;
+}
+
+#fetchResult {
+  margin-top: 1rem;
+  font-family: monospace;
+  background: #1f2f1f;
+  color: #e0e0d0;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 600px;
+}
+
+form input,
+form select,
+form button {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-size: 1em;
+  background-color: #5b7e5b;
+  color: white;
+}
+
+#createForm {
+  display: flex;
+  flex-direction: column;
+}
