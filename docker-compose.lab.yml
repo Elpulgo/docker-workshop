@@ -1,0 +1,55 @@
+services:
+  gandalfapi:
+    container_name: gandalf-api
+    build:
+      context: .
+      dockerfile: GandalfApi/Dockerfile-Lab
+    environment:
+      - lotr__frodo=baggins
+      - lotr__bookapiurl=https://the-one-api.dev/v2/book
+      - lotr__usedb=true
+      - lotr__dbconnection=Data Source=db,1433;Initial Catalog=MiddleEarth;User ID=sa;Password=Password-sa123;Persist Security Info=True;TrustServerCertificate=True;
+      - ASPNETCORE_URLS=http://+:5005
+    image: gandalf-api:local
+    volumes:
+      - "c:/Users/262482/rs:/foo/bar/:ro"
+    ports:
+      - 5005:5005
+    networks:
+      - middle-earth-network
+    depends_on:
+      - db
+
+  legolas-fe:
+    container_name: legolas-fe
+    build:
+      context: ./Legolas.UI
+      dockerfile: Dockerfile-Lab
+    ports:
+      - "3005:80"
+    environment:
+      - API_URL=http://gandalfapi:5005
+    image: legolas-fe:local
+    networks:
+      - middle-earth-network
+    depends_on:
+      - gandalfapi
+
+  db:
+    container_name: middleearth-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password-sa123
+      - MSSQL_PID=Developer
+      - MSSQL_COLLATION=Finnish_Swedish_CI_AS
+      - TZ=Europe/Stockholm
+    ports:
+      - 1433:1433
+    networks:
+      - middle-earth-network
+
+
+networks:
+  middle-earth-network:
+    name: middle-earth-network
