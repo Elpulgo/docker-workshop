@@ -8,7 +8,7 @@ services:
       - lotr__frodo=baggins
       - lotr__bookapiurl=https://the-one-api.dev/v2/book
       - lotr__usedb=true
-      - lotr__dbconnection=Data Source=db,1433;Initial Catalog=MiddleEarth;User ID=sa;Password=Password-sa123;Persist Security Info=True;TrustServerCertificate=True;
+      - lotr__dbconnection=Data Source=db,1433;Initial Catalog=Master;User ID=sa;Password=Password-sa123;Persist Security Info=True;TrustServerCertificate=True;
       - ASPNETCORE_URLS=http://+:5005
     image: gandalf-api:local
     volumes:
